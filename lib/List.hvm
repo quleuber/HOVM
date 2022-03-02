@@ -1,0 +1,39 @@
+(Id x) = x
+
+// (List (List a)) : a
+(List.head (Cons x xs)) = x
+
+(List.last (Cons x (Nil))) = x
+(List.last (Cons x xs))    = (List.last xs)
+
+// (List (List a)) : List a
+(List.tail (Cons x xs)) = xs
+
+(List.length (Nil))       = 0
+(List.length (Cons x xs)) = (+ 1 (List.length xs))
+
+(List.concat (Nil) b)       = b
+(List.concat (Cons x xs) b) = (Cons x (List.concat xs b))
+
+(List.map f (Nil))       = (Nil)
+(List.map f (Cons x xs)) = (Cons (f x) (List.map f xs))
+
+(List.reverse (Nil))       = (Nil)
+(List.reverse (Cons x xs)) = (List.concat (List.reverse xs) [x])
+
+// (List.foldl (a -> b -> b) b (List a)) : b
+(List.foldr f b (Nil))       = b 
+(List.foldr f b (Cons x xs)) = (f x (List.foldr f b xs))
+
+// (List.foldr1 (a -> a -> a) (List a)) : a
+(List.foldr1 f (Cons x (Nil))) = x
+(List.foldr1 f (Cons x xs))    = (f x (List.foldr1 f xs)) 
+
+(Main) =
+  (List.concat
+    (List.concat
+      [11, 12, 13]
+      (List.map (@x (+ x 2)) [1 2 3])
+    )
+    [(List.foldr1 (@a @ b (- a b)) [1, 2, 3, 4])]
+  )

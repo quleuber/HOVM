@@ -9,6 +9,8 @@
     "dynrules",
     "dynterm",
     "dynvar",
+    "foldl",
+    "foldr",
     "itertools",
     "lambolt",
     "oper",
