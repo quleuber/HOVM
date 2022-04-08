@@ -5,15 +5,19 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
       "type": "lldb",
       "request": "launch",
       "name": "Debug executable 'hvm'",
       "cargo": {
-        "args": [
-          "build",
-          "--bin=hvm",
-          "--package=hvm"
-        ],
+        "args": ["build", "--bin=hvm", "--package=hvm"],
         "filter": {
           "name": "hvm",
           "kind": "bin"
@@ -27,12 +31,7 @@
       "request": "launch",
       "name": "Debug unit tests in executable 'hvm'",
       "cargo": {
-        "args": [
-          "test",
-          "--no-run",
-          "--bin=hvm",
-          "--package=hvm"
-        ],
+        "args": ["test", "--no-run", "--bin=hvm", "--package=hvm"],
         "filter": {
           "name": "hvm",
           "kind": "bin"

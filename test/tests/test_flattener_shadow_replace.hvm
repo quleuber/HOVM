@@ -1,0 +1,4 @@
+(Foo (S (S a)) b) = 0
+(Foo a (S (S b))) = @a a
+
+(Main n) = (Foo (S Z) (S (S Z)))

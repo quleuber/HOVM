@@ -1,0 +1,5 @@
+tests:
+  - 
+    args: [10]
+    output: |
+      λx1 x1
