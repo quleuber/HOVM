@@ -15,7 +15,7 @@ test = true
 
 [[bin]]
 name = "hvm"
-test = false
+test = true
 
 [profile.dev_fast]
 inherits = "dev"
